@@ -11,24 +11,41 @@
 </head>
 <body>
     <h1>包子家的小小世界</h1>
-    <p>这张地图显示了世界各地的主要城市，标注了主要城市。温哥华用红色标出，西雅图用蓝色标注。阿拉斯加和...</p>
+    <p>This map shows some of the main cities around the world. Click on a marker to learn more about each location.</p>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-var map = L.map('map').setView([0, 0], 2); // 设置地图中心为世界范围
+    var map = L.map('map').setView([0, 0], 2); // Set the map center to a global view
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
-// 示例标记点
-L.marker([49.2827, -123.1207]).addTo(map) // 温哥华
-    .bindPopup('温哥华 - 红色标记').openPopup();
+    // Array of locations with key, name, lat/lng
+    var locations = [
+        { key: 'canada', name: 'Vancouver', lat: 49.2827, lng: -123.1207 },
+        { key: 'usa', name: 'Seattle', lat: 47.6062, lng: -122.3321 },
+        { key: 'japan', name: 'Tokyo', lat: 35.6762, lng: 139.6503 },
+        { key: 'france', name: 'Paris', lat: 48.8566, lng: 2.3522 },
+        { key: 'italy', name: 'Rome', lat: 41.9028, lng: 12.4964 },
+        { key: 'greece', name: 'Athens', lat: 37.9838, lng: 23.7275 },
+        { key: 'hongkong', name: '香港', lat: 22.3193, lng: 114.1694 },
+        { key: 'taiwan', name: '台湾', lat: 23.6978, lng: 120.9605 }
+    ];
 
-L.marker([47.6062, -122.3321]).addTo(map) // 西雅图
-    .bindPopup('西雅图 - 蓝色标记').openPopup();
-        // 在此处添加你的 JavaScript 代码，用于在地图上添加标记等。
-    </script>
+    // Create markers with popups and click behavior
+    locations.forEach(function(loc) {
+        var marker = L.marker([loc.lat, loc.lng]).addTo(map)
+            .bindPopup(`<b>${loc.name}</b><br>点击查看更多`);
+
+        marker.on('click', function () {
+            window.location.href = `${loc.key}.html`; // e.g. canada.html
+        });
+    });
+</script>
+        
+</body>
+</html>
 </body>
 </html>
