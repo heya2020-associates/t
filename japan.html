@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAPAN的旅行 - 包子家的小小世界</title>
+    <title>日本美食文化之旅 - 包子家的小小世界</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,8 +27,9 @@
         }
         .friend-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
             gap: 20px;
+            width: 100%; /* Take up the full width */
         }
         .friend-card {
             background-color: #fff;
@@ -36,6 +37,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             text-align: center;
+            height: 100%; /* Ensure each card stretches to fill the grid area */
         }
         .friend-card img {
             width: 100%;
@@ -65,43 +67,44 @@
 </head>
 <body>
     <header>
-        <h1>Japan 包子家的小小世界 - 朋友们的旅行</h1>
+        <h1>日本美食文化之旅 - 包子家的小小世界</h1>
     </header>
 
     <main>
         <section class="intro">
-            <p>这里是关于我们朋友们一起去过的地方！每个朋友都有自己独特的旅行经历，看看他们去了哪里吧！</p>
+            <p>日本，虽然很近又看似遥远的存在。拥有很多神奇让人叹为观止的东方文化色彩。虽然不乏熟悉的食物和口味，仍然有着它独特的魅力和奇葩的槽点。当然很讲很多食物啦，不过还是会努力详尽的讲一讲我们的 1. 路线计划；2.食物；3.住宿；4.文化；5.经费。 我会专门写一写拍摄婚纱照的神秘地点哦！独家独家！
+                france is a place with wonder, we have been to a few places there but here are still a lot to explore</p>
         </section>
 
         <section class="friend-list">
-            <!-- Kyoto -->
+            <!-- city 1 -->
             <div class="friend-card">
-                <img src="friend1.jpg" alt="Friend 1's trip">
-                <h3>Kyoto</h3>
-                <p>小明去了法国，留下了许多美好的回忆。</p>
-                <a href="Japan/Kyoto.html" class="back-button">了解更多</a>
+                <img src="city1.jpg" alt="city1's trip">
+                <h3>Kyoto - 京都</h3>
+                <p>记忆点：古老的街道，神秘的东方文化</p>
+                <a href="greece/anthen.html" class="back-button">了解更多</a>
             </div>
 
-            <!-- Tokyo -->
+            <!-- city 2 -->
             <div class="friend-card">
-                <img src="friend2.jpg" alt="Friend 2's trip">
-                <h3>Tokyo</h3>
-                <p>小华的旅行带着我们一起探索了日本的美丽。</p>
-                <a href="Japan/Tokyo.html" class="back-button">了解更多</a>
+                <img src="city2.jpg" alt="city 2's trip">
+                <h3>Tokyo - 现代</h3>
+                <p>记忆点：动漫，玲琅满目的商品和摩肩接踵的人流</p>
+                <a href="greece/santorini.html" class="back-button">了解更多</a>
             </div>
 
-            <!-- Osaka -->
+            <!-- city 3 -->
             <div class="friend-card">
-                <img src="friend3.jpg" alt="Friend 3's trip">
-                <h3>Osaka</h3>
-                <p>小美走遍了世界各地，尤其钟爱意大利的美食。</p>
-                <a href="Japan/Osaka.html" class="back-button">了解更多</a>
+                <img src="city3.jpg" alt="city 3's trip">
+                <h3>Osaka - 大阪 </h3>
+                <p>记忆点：美食天堂</p>
+                <a href="greece/crete.html" class="back-button">了解更多</a>
             </div>
 
             <!-- Add more friends here -->
         </section>
 
-        <a href="index.html" class="back-button">返回首页</a>
+        <a href="index.html" class="back-button">Home 返回首页</a>
     </main>
 </body>
 </html>
