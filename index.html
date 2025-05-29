@@ -161,7 +161,69 @@ var toronto = L.marker([43.6510, -79.3470]).addTo(map)
 toronto.on('click', function () {
     window.location.href = 'canada.html';
 });
-    
+    // Banff National Park marker
+        var banff = L.marker([51.4968, -115.9281]).addTo(map)
+            .bindPopup('Banff National Park - Click to learn more');
+
+        banff.on('click', function () {
+            window.location.href = 'canada.html'; 
+        });
+
+        // Lake Louise marker
+        var lakeLouise = L.marker([51.4566, -116.2330]).addTo(map)
+            .bindPopup('Lake Louise - Click to learn more');
+
+        lakeLouise.on('click', function () {
+            window.location.href = 'canada.html'; 
+        });
+
+        // Chengdu marker
+        var chengdu = L.marker([30.5728, 104.0668]).addTo(map)
+            .bindPopup('Chengdu - Click to learn more');
+
+        chengdu.on('click', function () {
+            window.location.href = 'china.html'; 
+        });
+
+        // Chongqing marker
+        var chongqing = L.marker([29.5630, 106.5516]).addTo(map)
+            .bindPopup('Chongqing - Click to learn more');
+
+        chongqing.on('click', function () {
+            window.location.href = 'china.html'; 
+        });
+
+        // Guizhou marker
+        var guizhou = L.marker([26.6538, 106.6332]).addTo(map)
+            .bindPopup('Guizhou - Click to learn more');
+
+        guizhou.on('click', function () {
+            window.location.href = 'china.html'; 
+        });
+
+        // Emei Mountain marker
+        var emei = L.marker([29.5130, 103.3428]).addTo(map)
+            .bindPopup('Emei Mountain - Click to learn more');
+
+        emei.on('click', function () {
+            window.location.href = 'china.html'; 
+        });
+
+        // Florida marker
+        var florida = L.marker([27.9944024, -81.7602544]).addTo(map)
+            .bindPopup('Florida - Click to learn more');
+
+        florida.on('click', function () {
+            window.location.href = 'usa.html'; 
+        });
+
+        // Caribbean marker
+        var caribbean = L.marker([16.7, -62.3]).addTo(map)
+            .bindPopup('Caribbean - Click to learn more');
+
+        caribbean.on('click', function () {
+            window.location.href = 'caribbean.html'; 
+        });
     </script>
 </body>
 </html>
