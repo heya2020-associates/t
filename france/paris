@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food in Paris</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .content {
+            padding: 20px;
+        }
+        .content img {
+            width: 50%;
+            border-radius: 8px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <h1>Sushi - Japan</h1>
+        <img src="sushi-dish.jpg" alt="Sushi Dish">
+        <p>Sushi is a popular Japanese dish made with vinegared rice, usually accompanied by seafood, vegetables, and sometimes tropical fruits. It is typically served as bite-sized pieces and is often eaten with soy sauce, wasabi, and pickled ginger.</p>
+        <p><strong>History:</strong> Sushi originated in Japan around the 8th century as a way to preserve fish in fermented rice. Over time, it evolved into the dish we know today.</p>
+        
+        <a href="asia.html" class="back-button">Back to Asian Food</a>
+    </div>
+
+</body>
+</html>
