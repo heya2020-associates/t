@@ -16,36 +16,59 @@
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-    var map = L.map('map').setView([0, 0], 2); // Set the map center to a global view
+        var map = L.map('map').setView([0, 0], 2); // Set the map center to a global view
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
 
-    // Array of locations with key, name, lat/lng
-    var locations = [
-        { key: 'canada', name: 'Vancouver', lat: 49.2827, lng: -123.1207 },
-        { key: 'usa', name: 'Seattle', lat: 47.6062, lng: -122.3321 },
-        { key: 'japan', name: 'Tokyo', lat: 35.6762, lng: 139.6503 },
-        { key: 'france', name: 'Paris', lat: 48.8566, lng: 2.3522 },
-        { key: 'italy', name: 'Rome', lat: 41.9028, lng: 12.4964 },
-        { key: 'greece', name: 'Athens', lat: 37.9838, lng: 23.7275 },
-        { key: 'hongkong', name: '香港', lat: 22.3193, lng: 114.1694 },
-        { key: 'taiwan', name: '台湾', lat: 23.6978, lng: 120.9605 }
-    ];
+        // Vancouver marker
+        var vancouver = L.marker([49.2827, -123.1207]).addTo(map)
+            .bindPopup('Vancouver - Click to learn more');
 
-    // Create markers with popups and click behavior
-    locations.forEach(function(loc) {
-        var marker = L.marker([loc.lat, loc.lng]).addTo(map)
-            .bindPopup(`<b>${loc.name}</b><br>点击查看更多`);
-
-        marker.on('click', function () {
-            window.location.href = `${loc.key}.html`; // e.g. canada.html
+        vancouver.on('click', function () {
+            window.location.href = 'canada.html'; // Custom page, make sure this file exists
         });
-    });
-</script>
-        
-</body>
-</html>
+
+        // Seattle marker
+        var seattle = L.marker([47.6062, -122.3321]).addTo(map)
+            .bindPopup('Seattle - Click to learn more');
+
+        seattle.on('click', function () {
+            window.location.href = 'usa.html'; // Custom page, make sure this file exists
+        });
+
+        // Tokyo marker
+        var tokyo = L.marker([35.6762, 139.6503]).addTo(map)
+            .bindPopup('Tokyo - Click to learn more');
+
+        tokyo.on('click', function () {
+            window.location.href = 'japan.html'; // Change to the correct file name (japan.html)
+        });
+
+        // Paris marker
+        var paris = L.marker([48.8566, 2.3522]).addTo(map)
+            .bindPopup('Paris - Click to learn more');
+
+        paris.on('click', function () {
+            window.location.href = 'france.html'; // Custom page, make sure this file exists
+        });
+
+        // Rome marker
+        var rome = L.marker([41.9028, 12.4964]).addTo(map)
+            .bindPopup('Rome - Click to learn more');
+
+        rome.on('click', function () {
+            window.location.href = 'italy.html'; // Custom page, make sure this file exists
+        });
+
+        // Athens marker
+        var athens = L.marker([37.9838, 23.7275]).addTo(map)
+            .bindPopup('Athens - Click to learn more');
+
+        athens.on('click', function () {
+            window.location.href = 'greece.html'; // Custom page, make sure this file exists
+        });
+    </script>
 </body>
 </html>
