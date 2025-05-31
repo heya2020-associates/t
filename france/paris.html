@@ -1,46 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
+    <title>巴黎 - 法国之旅</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food in Paris</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+        /* Basic Reset */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        .content {
-            padding: 20px;
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
         }
-        .content img {
-            width: 50%;
-            border-radius: 8px;
-        }
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            background-color: #333;
+
+        /* Title Banner */
+        .title-banner {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            background-image: url('banner1.jpg');
+            animation: bannerFade 12s infinite;
             color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px #333;
         }
-        .back-button:hover {
-            background-color: #555;
+
+        @keyframes bannerFade {
+            0%, 100% { background-image: url('banner1.jpg'); }
+            33% { background-image: url('banner2.jpg'); }
+            66% { background-image: url('banner3.jpg'); }
+        }
+
+        /* Section styling */
+        .section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+            border-left: 6px solid #4CAF50;
+            padding-left: 12px;
+        }
+
+        /* Floating Panel */
+        .floating-links {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            width: 180px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .floating-links h3 {
+            font-size: 1em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .floating-links a {
+            display: block;
+            color: #007BFF;
+            text-decoration: none;
+            margin: 6px 0;
+        }
+
+        .floating-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .floating-links {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="content">
-        <h1>Sushi - Japan</h1>
-        <img src="sushi-dish.jpg" alt="Sushi Dish">
-        <p>Sushi is a popular Japanese dish made with vinegared rice, usually accompanied by seafood, vegetables, and sometimes tropical fruits. It is typically served as bite-sized pieces and is often eaten with soy sauce, wasabi, and pickled ginger.</p>
-        <p><strong>History:</strong> Sushi originated in Japan around the 8th century as a way to preserve fish in fermented rice. Over time, it evolved into the dish we know today.</p>
-        
-        <a href="asia.html" class="back-button">Back to Asian Food</a>
+    <!-- Title Banner -->
+    <div class="title-banner">
+        巴黎 - 法国之旅
+    </div>
+
+    <!-- Floating Panel -->
+    <div class="floating-links">
+        <h3>快速链接</h3>
+        <a href="index.html">🏠 回首页</a>
+        <a href="france.html">🇫🇷 法国主页</a>
+        <a href="italy.html">🇮🇹 意大利</a>
+        <a href="greece.html">🇬🇷 希腊</a>
+        <hr>
+        <a href="food.html">🍜 美食</a>
+        <a href="lodging.html">🏨 住宿</a>
+        <a href="culture.html">🎨 文化</a>
+        <a href="language.html">🗣️ 语言</a>
+    </div>
+
+    <!-- Editable Content Section 1 -->
+    <div class="section">
+        <div class="section-title">城市印象</div>
+        <p>
+            巴黎，是法国的首都，以其浪漫氛围、悠久历史和令人惊叹的建筑而闻名。无论是塞纳河畔的漫步，还是在埃菲尔铁塔前的日落时分，都充满诗意。
+        </p>
+    </div>
+
+    <!-- Editable Content Section 2 -->
+    <div class="section">
+        <div class="section-title">旅游景点</div>
+        <ul>
+            <li>埃菲尔铁塔</li>
+            <li>卢浮宫</li>
+            <li>圣母院</li>
+            <li>香榭丽舍大街</li>
+        </ul>
+    </div>
+
+    <!-- Editable Content Section 3 -->
+    <div class="section">
+        <div class="section-title">美食体验</div>
+        <p>
+            巴黎不仅有米其林餐厅，还有无数迷人的咖啡馆和法式面包店。千万不要错过可颂、鹅肝、蜗牛和红酒。
+        </p>
     </div>
 
 </body>
