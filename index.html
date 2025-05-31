@@ -1,229 +1,244 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
+    <meta charset="UTF-8">
     <title>包子家的小小世界</title>
-    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <style>
-        #map { height: 600px; }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+        .language-switcher .lang {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #333;
+        }
+        .language-switcher .active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* Title with background slideshow */
+        .title-section {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .title-section h1 {
+            z-index: 2;
+            font-size: 3em;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px 40px;
+            border-radius: 10px;
+        }
+
+        .slideshow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            top: 0;
+            left: 0;
+        }
+
+        .slideshow img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slideshow img.active {
+            opacity: 1;
+        }
+
+        #map {
+            height: 600px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 30px 20px;
+        }
+
+        .grid-item {
+            position: relative;
+            color: white;
+            height: 150px;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            line-height: 150px;
+            font-size: 1.5em;
+            font-weight: bold;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .quick-links {
+            position: fixed;
+            right: 10px;
+            top: 120px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 1000;
+            box-shadow: 0 0 8px rgba(0,0,0,0.2);
+        }
+
+        .quick-links h3 {
+            margin-top: 0;
+        }
+
+        .quick-links a {
+            display: block;
+            color: #007BFF;
+            text-decoration: none;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .quick-links a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+
+<!-- Language Switcher -->
+<div class="language-switcher">
+    <a href="index.html" class="lang active">中文</a>
+    <a href="index_en.html" class="lang">English</a>
+    <a href="index_fr.html" class="lang">Français</a>
+    <a href="index_it.html" class="lang">Italiano</a>
+</div>
+
+<!-- Title Section with Slideshow -->
+<div class="title-section">
     <h1>包子家的小小世界</h1>
-    <p>This map shows some of the main cities around the world. Click on a marker to learn more about each location.</p>
-    <div id="map"></div>
+    <div class="slideshow">
+        <img src="img/slideshow1.jpg" class="active" />
+        <img src="img/slideshow2.jpg" />
+        <img src="img/slideshow3.jpg" />
+    </div>
+</div>
 
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script>
-        var map = L.map('map').setView([0, 0], 2); // Set the map center to a global view
+<!-- Map Section -->
+<p style="text-align:center;">以下是我们探索过的一些城市，点击标记可查看更多内容：</p>
+<div id="map"></div>
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
+<!-- Continent Grid -->
+<div class="grid-container">
+    <div class="grid-item" style="background-image: url('img/asia.jpg');">亚洲</div>
+    <div class="grid-item" style="background-image: url('img/northamerica.jpg');">北美洲</div>
+    <div class="grid-item" style="background-image: url('img/southamerica.jpg');">南美洲</div>
+    <div class="grid-item" style="background-image: url('img/europe.jpg');">欧洲</div>
+</div>
 
-        // Vancouver marker
-        var vancouver = L.marker([49.2827, -123.1207]).addTo(map)
-            .bindPopup('Vancouver - Click to learn more');
+<!-- Theme Grid -->
+<div class="grid-container">
+    <div class="grid-item" style="background-image: url('img/food.jpg');">美食</div>
+    <div class="grid-item" style="background-image: url('img/lodging.jpg');">住宿</div>
+    <div class="grid-item" style="background-image: url('img/culture.jpg');">文化</div>
+    <div class="grid-item" style="background-image: url('img/language.jpg');">语言</div>
+</div>
 
-        vancouver.on('click', function () {
-            window.location.href = 'canada.html'; // Custom page, make sure this file exists
+<!-- Quick Link Floating Panel -->
+<div class="quick-links">
+    <h3>快速链接</h3>
+    <a href="china.html">中国</a>
+    <a href="japan.html">日本</a>
+    <a href="usa.html">美国</a>
+    <a href="canada.html">加拿大</a>
+    <a href="france.html">法国</a>
+    <a href="greece.html">希腊</a>
+    <a href="italy.html">意大利</a>
+    <a href="caribbean.html">加勒比</a>
+</div>
+
+<!-- Leaflet Map Script -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script>
+    var map = L.map('map').setView([0, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const locations = [
+        { name: 'Vancouver', coords: [49.2827, -123.1207], url: 'canada.html' },
+        { name: 'Toronto', coords: [43.6510, -79.3470], url: 'canada.html' },
+        { name: 'Seattle', coords: [47.6062, -122.3321], url: 'usa.html' },
+        { name: 'Los Angeles', coords: [34.0522, -118.2437], url: 'usa.html' },
+        { name: 'San Francisco', coords: [37.7749, -122.4194], url: 'usa.html' },
+        { name: 'Las Vegas', coords: [36.1699, -115.1398], url: 'usa.html' },
+        { name: 'Grand Canyon', coords: [36.1069, -112.1129], url: 'usa.html' },
+        { name: 'Utah', coords: [39.3200, -111.0937], url: 'usa.html' },
+        { name: 'Florida', coords: [27.9944, -81.7603], url: 'usa.html' },
+        { name: 'Tokyo', coords: [35.6762, 139.6503], url: 'japan.html' },
+        { name: 'Kyoto', coords: [35.0116, 135.7681], url: 'japan.html' },
+        { name: 'Osaka', coords: [34.6937, 135.5023], url: 'japan.html' },
+        { name: 'Mt. Fuji', coords: [35.3606, 138.7274], url: 'japan.html' },
+        { name: 'Paris', coords: [48.8566, 2.3522], url: 'france.html' },
+        { name: 'Lyon', coords: [45.75, 4.85], url: 'france.html' },
+        { name: 'Reims', coords: [49.2583, 4.0317], url: 'france.html' },
+        { name: 'Rome', coords: [41.9028, 12.4964], url: 'italy.html' },
+        { name: 'Athens', coords: [37.9838, 23.7275], url: 'greece.html' },
+        { name: 'Santorini', coords: [36.3932, 25.4615], url: 'greece.html' },
+        { name: 'Crete', coords: [35.2401, 24.8093], url: 'greece.html' },
+        { name: 'Chengdu', coords: [30.5728, 104.0668], url: 'china.html' },
+        { name: 'Chongqing', coords: [29.5630, 106.5516], url: 'china.html' },
+        { name: 'Guizhou', coords: [26.6538, 106.6332], url: 'china.html' },
+        { name: 'Emei Mountain', coords: [29.5130, 103.3428], url: 'china.html' },
+        { name: 'Banff', coords: [51.4968, -115.9281], url: 'canada.html' },
+        { name: 'Lake Louise', coords: [51.4566, -116.2330], url: 'canada.html' },
+        { name: 'Caribbean', coords: [16.7, -62.3], url: 'caribbean.html' }
+    ];
+
+    locations.forEach(loc => {
+        const marker = L.marker(loc.coords).addTo(map)
+            .bindPopup(`${loc.name} - 点击查看`);
+        marker.on('click', () => {
+            window.location.href = loc.url;
         });
+    });
+</script>
 
-        // Seattle marker
-        var seattle = L.marker([47.6062, -122.3321]).addTo(map)
-            .bindPopup('Seattle - Click to learn more');
+<!-- Slideshow Script -->
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slideshow img");
 
-        seattle.on('click', function () {
-            window.location.href = 'usa.html'; // Custom page, make sure this file exists
-        });
+    setInterval(() => {
+        slides[currentSlide].classList.remove("active");
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add("active");
+    }, 4000);
+</script>
 
-        // Tokyo marker
-        var tokyo = L.marker([35.6762, 139.6503]).addTo(map)
-            .bindPopup('Tokyo - Click to learn more');
-
-        tokyo.on('click', function () {
-            window.location.href = 'japan.html'; // Change to the correct file name (japan.html)
-        });
-
-        // Paris marker
-        var paris = L.marker([48.8566, 2.3522]).addTo(map)
-            .bindPopup('Paris - Click to learn more');
-
-        paris.on('click', function () {
-            window.location.href = 'france.html'; // Custom page, make sure this file exists
-        });
-
-        // Rome marker
-        var rome = L.marker([41.9028, 12.4964]).addTo(map)
-            .bindPopup('Rome - Click to learn more');
-
-        rome.on('click', function () {
-            window.location.href = 'italy.html'; // Custom page, make sure this file exists
-        });
-
-        // Athens marker
-        var athens = L.marker([37.9838, 23.7275]).addTo(map)
-            .bindPopup('Athens - Click to learn more');
-
-        athens.on('click', function () {
-            window.location.href = 'greece.html'; // Custom page, make sure this file exists
-    
-        });
-
-// Lyon (France)
-var lyon = L.marker([45.75, 4.85]).addTo(map)
-    .bindPopup('Lyon - Click to learn more');
-lyon.on('click', function () {
-    window.location.href = 'france.html';
-});
-
-// Reims (France)
-var reims = L.marker([49.2583, 4.0317]).addTo(map)
-    .bindPopup('Reims - Click to learn more');
-reims.on('click', function () {
-    window.location.href = 'france.html';
-});
-
-// Santorini (Greece)
-var santorini = L.marker([36.3932, 25.4615]).addTo(map)
-    .bindPopup('Santorini - Click to learn more');
-santorini.on('click', function () {
-    window.location.href = 'greece.html';
-});
-
-// Crete (Greece)
-var crete = L.marker([35.2401, 24.8093]).addTo(map)
-    .bindPopup('Crete - Click to learn more');
-crete.on('click', function () {
-    window.location.href = 'greece.html';
-});
-
-// Kyoto (Japan)
-var kyoto = L.marker([35.0116, 135.7681]).addTo(map)
-    .bindPopup('Kyoto - Click to learn more');
-kyoto.on('click', function () {
-    window.location.href = 'japan.html';
-});
-
-// Osaka (Japan)
-var osaka = L.marker([34.6937, 135.5023]).addTo(map)
-    .bindPopup('Osaka - Click to learn more');
-osaka.on('click', function () {
-    window.location.href = 'japan.html';
-});
-
-// Mt. Fuji (Japan)
-var fuji = L.marker([35.3606, 138.7274]).addTo(map)
-    .bindPopup('Mt. Fuji - Click to learn more');
-fuji.on('click', function () {
-    window.location.href = 'japan.html';
-});
-
-// Los Angeles (USA)
-var losAngeles = L.marker([34.0522, -118.2437]).addTo(map)
-    .bindPopup('Los Angeles - Click to learn more');
-losAngeles.on('click', function () {
-    window.location.href = 'usa.html';
-});
-
-// San Francisco (USA)
-var sanFrancisco = L.marker([37.7749, -122.4194]).addTo(map)
-    .bindPopup('San Francisco - Click to learn more');
-sanFrancisco.on('click', function () {
-    window.location.href = 'usa.html';
-});
-
-// Las Vegas (USA)
-var lasVegas = L.marker([36.1699, -115.1398]).addTo(map)
-    .bindPopup('Las Vegas - Click to learn more');
-lasVegas.on('click', function () {
-    window.location.href = 'usa.html';
-});
-
-// Grand Canyon (USA)
-var grandCanyon = L.marker([36.1069, -112.1129]).addTo(map)
-    .bindPopup('Grand Canyon - Click to learn more');
-grandCanyon.on('click', function () {
-    window.location.href = 'usa.html';
-});
-
-// Utah (USA)
-var utah = L.marker([39.3200, -111.0937]).addTo(map)
-    .bindPopup('Utah - Click to learn more');
-utah.on('click', function () {
-    window.location.href = 'usa.html';
-});
-
-// Toronto (Canada)
-var toronto = L.marker([43.6510, -79.3470]).addTo(map)
-    .bindPopup('Toronto - Click to learn more');
-toronto.on('click', function () {
-    window.location.href = 'canada.html';
-});
-    // Banff National Park marker
-        var banff = L.marker([51.4968, -115.9281]).addTo(map)
-            .bindPopup('Banff National Park - Click to learn more');
-
-        banff.on('click', function () {
-            window.location.href = 'canada.html'; 
-        });
-
-        // Lake Louise marker
-        var lakeLouise = L.marker([51.4566, -116.2330]).addTo(map)
-            .bindPopup('Lake Louise - Click to learn more');
-
-        lakeLouise.on('click', function () {
-            window.location.href = 'canada.html'; 
-        });
-
-        // Chengdu marker
-        var chengdu = L.marker([30.5728, 104.0668]).addTo(map)
-            .bindPopup('Chengdu - Click to learn more');
-
-        chengdu.on('click', function () {
-            window.location.href = 'china.html'; 
-        });
-
-        // Chongqing marker
-        var chongqing = L.marker([29.5630, 106.5516]).addTo(map)
-            .bindPopup('Chongqing - Click to learn more');
-
-        chongqing.on('click', function () {
-            window.location.href = 'china.html'; 
-        });
-
-        // Guizhou marker
-        var guizhou = L.marker([26.6538, 106.6332]).addTo(map)
-            .bindPopup('Guizhou - Click to learn more');
-
-        guizhou.on('click', function () {
-            window.location.href = 'china.html'; 
-        });
-
-        // Emei Mountain marker
-        var emei = L.marker([29.5130, 103.3428]).addTo(map)
-            .bindPopup('Emei Mountain - Click to learn more');
-
-        emei.on('click', function () {
-            window.location.href = 'china.html'; 
-        });
-
-        // Florida marker
-        var florida = L.marker([27.9944024, -81.7602544]).addTo(map)
-            .bindPopup('Florida - Click to learn more');
-
-        florida.on('click', function () {
-            window.location.href = 'usa.html'; 
-        });
-
-        // Caribbean marker
-        var caribbean = L.marker([16.7, -62.3]).addTo(map)
-            .bindPopup('Caribbean - Click to learn more');
-
-        caribbean.on('click', function () {
-            window.location.href = 'caribbean.html'; 
-        });
-    </script>
 </body>
 </html>
