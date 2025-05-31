@@ -42,22 +42,32 @@
 
         /* Section styling */
         .section {
-            padding: 40px 20px;
-            max-width: 1000px;
-            margin: auto;
-            background: white;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
+  padding: 2em;
+  margin-bottom: 2em;
+  border-radius: 12px;
+  background-color: #f9f9f9; /* soft gray background */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
 
-        .section-title {
-            font-size: 2em;
-            color: #333;
-            margin-bottom: 20px;
-            border-left: 6px solid #4CAF50;
-            padding-left: 12px;
-        }
+.section-title {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #333;
+  border-left: 6px solid #ff9966;
+  padding-left: 15px;
+  margin-bottom: 1em;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ff9966;
+  margin-top: 8px;
+  border-radius: 2px;
+}
 
         /* Floating Panel */
         .floating-links {
