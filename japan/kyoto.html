@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>京都 Kyoto - 包子家的小小世界</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        .title-banner {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            background-image: url('japan/banner1.jpg');
+            animation: bannerFade 12s infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+            padding: 0 20px;
+        }
+
+        @keyframes bannerFade {
+            0%, 100% { background-image: url('japan/banner1.jpg'); }
+            33% { background-image: url('japan/banner2.jpg'); }
+            66% { background-image: url('japan/banner3.jpg'); }
+        }
+
+        .title-frame {
+            width: 100%;
+            max-width: 1000px;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            font-size: 2.8em;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
+
+        .section {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #ff6600;
+            border-bottom: 3px solid #ff9966;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .floating-panel {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ddd;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .floating-panel a {
+            display: block;
+            margin: 8px 0;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .floating-panel a:hover {
+            color: #ff6600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title-banner">
+        <div class="title-frame">京都 Kyoto</div>
+    </div>
+
+    <div class="floating-panel">
+        <strong>快速链接</strong>
+        <a href="index.html">🏠 回首页</a>
+        <a href="japan.html">🇯🇵 日本主页</a>
+        <a href="japan.html#tokyo">东京</a>
+        <a href="japan.html#osaka">大阪</a>
+        <hr>
+        <a href="food.html">🍜 美食</a>
+        <a href="lodging.html">🏨 住宿</a>
+        <a href="culture.html">🎭 文化</a>
+        <a href="language.html">🗣️ 语言</a>
+    </div>
+
+    <div class="section">
+        <div class="section-title">城市印象</div>
+        <p>京都以其保存完好的传统文化和美丽的寺庙花园闻名，是日本古都的代表。</p>
+        <img src="japan/kyoto1.jpg" alt="Kyoto Temple" style="width:100%; max-width:800px; margin: 20px 0; border-radius: 10px;">
+        <p>从金阁寺到清水寺，再到祗园的古街巷，京都散发着浓厚的历史气息和宁静之美。</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">亲子活动</div>
+        <p>推荐带孩子去京都水族馆、梅小路公园或体验传统和服穿着，让孩子感受日本文化。</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">旅行建议</div>
+        <p>建议使用公交一日券游览，避开节假日高峰，提前预订知名寺庙和餐厅的门票。</p>
+    </div>
+
+</body>
+</html>
